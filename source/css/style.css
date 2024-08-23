@@ -1,4 +1,4 @@
-/********** Template CSS **********/
+
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -26,7 +26,7 @@
 }
 
 
-/*** Spinner ***/
+
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -41,7 +41,7 @@
 }
 
 
-/*** Button ***/
+
 .btn {
     font-weight: 500;
     transition: .5s;
