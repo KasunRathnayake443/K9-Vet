@@ -177,8 +177,7 @@
                                 Vet Clinic has been a pillar of support for pet owners in the community, providing
                                 compassionate care and expert medical services for their beloved furry companions. Led by
                                 a dedicated team of veterinarians and support staff, K-9 Vet Clinic is committed to ensuring
-                                the health, happiness, and well-being of every animal that walks through its doors.
-</p>
+                                the health, happiness, and well-being of every animal that walks through its doors.</p>
                     <p class="mb-4"></p>
                     <p><i class="far fa-check-circle text-primary me-3"></i>Quality health care</p>
                     <p><i class="far fa-check-circle text-primary me-3"></i>Only Qualified Doctors</p>
@@ -191,33 +190,33 @@
     
 
 
-    <div class="container">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-        <p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
-        <h1>Health Care Solutions</h1>
-    </div>
-    <div class="row g-4">
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item bg-light rounded h-100 p-5">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                        <i class="fa fa-heartbeat text-primary fs-4"></i>
+    <div class="container" id="services">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
+            <h1>Health Care Solutions</h1>
+        </div>
+        <div class="row g-4">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-info rounded h-100 p-5">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <i class="fa fa-heartbeat text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3"><?php echo htmlspecialchars($row['name']); ?></h4>
+                        <p class="mb-4">
+                            <span class="short-description">
+                                <?php echo substr(htmlspecialchars($row['description']), 0, 100); ?>...
+                            </span>
+                            <span class="full-description d-none">
+                                <?php echo htmlspecialchars($row['description']); ?>
+                            </span>
+                        </p>
+                        <a class="btn show-more" href="javascript:void(0);"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
-                    <h4 class="mb-3"><?php echo htmlspecialchars($row['name']); ?></h4>
-                    <p class="mb-4">
-                        <span class="short-description">
-                            <?php echo substr(htmlspecialchars($row['description']), 0, 100); ?>...
-                        </span>
-                        <span class="full-description d-none">
-                            <?php echo htmlspecialchars($row['description']); ?>
-                        </span>
-                    </p>
-                    <a class="btn show-more" href="javascript:void(0);"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                 </div>
-            </div>
-        <?php endwhile; ?>
+            <?php endwhile; ?>
+        </div>
     </div>
-</div>
 
 
 
@@ -289,44 +288,42 @@
     
 
     <div class="container">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-        <p class="d-inline-block border rounded-pill py-1 px-4">Shop</p>
-        <h1>Pet Care Essentials Store</h1>
-    </div>
- 
-<div class="row g-4">
-    <?php while ($row = $result2->fetch_assoc()): ?>
-    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="product-card position-relative rounded overflow-hidden">
-            <div class="product-image overflow-hidden">
-                <img class="img-fluid" src="source/img/products/<?php echo htmlspecialchars($row['url']); ?>" alt="">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Shop</p>
+                <h1>Pet Care Essentials Store</h1>
             </div>
-            <div class="product-details bg-light text-center p-4">
-                <h5><?php echo htmlspecialchars($row['name']); ?></h5>
-                <p class="text-primary"><?php echo htmlspecialchars($row['price']); ?></p>
-            </div>
-            <div class="product-hover">
-                <a class="btn btn-simple" href="">Visit Store</a>
-            </div>
+        
+        <div class="row g-4">
+            <?php while ($row = $result2->fetch_assoc()): ?>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="product-card position-relative rounded overflow-hidden">
+                    <div class="product-image overflow-hidden">
+                        <img class="img-fluid" src="source/img/products/<?php echo htmlspecialchars($row['url']); ?>" alt="">
+                    </div>
+                    <div class="product-details bg-light text-center p-4">
+                        <h5><?php echo htmlspecialchars($row['name']); ?></h5>
+                        <p class="text-primary"><?php echo htmlspecialchars($row['price']); ?></p>
+                    </div>
+                    <div class="product-hover">
+                        <a class="btn btn-simple" href="">Visit Store</a>
+                    </div>
+                </div>
+            </div> 
+            <?php endwhile; ?> 
         </div>
-    </div> 
-    <?php endwhile; ?> 
-</div>
 
-</div>
+    </div>
     
 
 
-    <
+    
     <div id="appointments" class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <p class="d-inline-block border rounded-pill py-1 px-4">Appointment</p>
                     <h1 class="mb-4">Make An Appointment To Visit Our Doctor</h1>
-                    <p class="mb-4">"Your pet's health and well-being are our top priorities. Whether it's for a routine check-up or a specific concern, our dedicated veterinarian is here to provide expert care and attention. Schedule an appointment today and take the first step towards ensuring a healthy, happy life for your furry friend. We look forward to welcoming you and your pet to our clinic!"
-
-    </p>
+                    <p class="mb-4">"Your pet's health and well-being are our top priorities. Whether it's for a routine check-up or a specific concern, our dedicated veterinarian is here to provide expert care and attention. Schedule an appointment today and take the first step towards ensuring a healthy, happy life for your furry friend. We look forward to welcoming you and your pet to our clinic!"</p>
                     <div class="bg-light rounded d-flex align-items-center p-5 mb-4">
                         <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
                             <i class="fa fa-phone-alt text-primary"></i>
@@ -343,71 +340,76 @@
                         <div class="ms-4">
                             <p class="mb-2">Mail Us Now</p>
                             <h5 class="mb-0">info@k9-vets.com</h5>
+                            
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
-        <form id="appointmentForm" method="POST" action="source/frontend/book_appointments.php">
-            <div class="row g-3">
-                <div class="col-12 col-sm-6">
-                    <input type="text" class="form-control border-0" name="name" placeholder="Your Name" required style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <input type="email" class="form-control border-0" name="email" placeholder="Your Email" required style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <input type="text" class="form-control border-0" name="mobile" placeholder="Your Mobile" required style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <input type="date" class="form-control border-0" name="date" id="appointmentDate" required style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <select class="form-control border-0" name="time" id="appointmentTime" required style="height: 55px;">
-                        <option value="">Choose Time</option>
-                        <option value="09:00">09:00 AM</option>
-                        <option value="09:30">09:30 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="10:30">10:30 AM</option>
-                        <option value="11:00">11:00 AM</option>
-                        <option value="11:30">11:30 AM</option>
-                        <option value="12:00">12:00 PM</option>
-                        <option value="12:30">12:30 PM</option>
-                        <option value="13:00">01:00 PM</option>
-                        <option value="13:30">01:30 PM</option>
-                        <option value="14:00">02:00 PM</option>
-                        <option value="14:30">02:30 PM</option>
-                        <option value="15:00">03:00 PM</option>
-                        <option value="15:30">03:30 PM</option>
-                        <option value="16:00">04:00 PM</option>
-                        <option value="16:30">04:30 PM</option>
-                        <option value="17:00">05:00 PM</option>
-                    </select>
-                </div>
-                <div class="col-12">
-                    <textarea class="form-control border-0" name="problem" rows="5" placeholder="Describe your problem" required></textarea>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
-                </div>
+                    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
+                         <form id="appointmentForm" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" name="name" placeholder="Your Name" required style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="email" class="form-control border-0" name="email" placeholder="Your Email" required style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control border-0" name="mobile" placeholder="Your Mobile" required style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="date" class="form-control border-0" name="date" id="appointmentDate" required style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <select class="form-control border-0" name="time" id="appointmentTime" required style="height: 55px;">
+                                            <option value="">Choose Time</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="09:30">09:30 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="10:30">10:30 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="11:30">11:30 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="12:30">12:30 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="13:30">01:30 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="14:30">02:30 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="15:30">03:30 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="16:30">04:30 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control border-0" name="problem" rows="5" placeholder="Describe your problem" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <div id="responseMessage" style="display:none; color: green; font-weight: bold;"></div>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+                
 
 
-    
-
-
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"  data-wow-delay="0.1s">
         <div class="container py-5">
-            <div class="row g-5">
+            <div class="row g-5" >
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Sanghabo Mawatha Pubudhupura, Himaka junction, Anuradhapura</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>076 0595881</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@K9-Vets.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
@@ -417,23 +419,25 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="">Cardiology</a>
-                    <a class="btn btn-link" href="">Pulmonary</a>
-                    <a class="btn btn-link" href="">Neurology</a>
-                    <a class="btn btn-link" href="">Orthopedics</a>
-                    <a class="btn btn-link" href="">Laboratory</a>
+                    <a class="btn btn-link" href="#services">In-House Pharmacy</a>
+                    <a class="btn btn-link" href="#services">Dental Service</a>
+                    <a class="btn btn-link" href="#services">Pet Salon</a>
+                    <a class="btn btn-link" href="#services">Advanced Anesthesia</a>
+                    <a class="btn btn-link" href="#services">Laboratory</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Quick Links</h5>
                     <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
                     <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="">Shop</a>
+                    <a class="btn btn-link" href="">News</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    
+                   
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Newsletter</h5>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p>Stay updated with our latest news and offers. Subscribe to our newsletter.</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
@@ -445,15 +449,14 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        &copy; <a class="border-bottom" href="index.php">K9-Vets</a>, All Right Reserved.
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+
     
 
 
@@ -474,7 +477,7 @@
     <script src="source/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="source/js/main.js"></script>
     <script src="source/js/service-cards.js"></script>
-    
+    <script src="source/js/pdf.js"></script>
     <script src="source/js/appointments-date.js"></script>
 </body>
 
