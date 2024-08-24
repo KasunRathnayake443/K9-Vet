@@ -96,7 +96,8 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Service</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                <a href="shop.html" class="nav-item nav-link">Shop</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
             <a href="#appointments" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Appointment<i class="fa fa-arrow-right ms-3"></i></a>
@@ -218,25 +219,6 @@
     </div>
 </div>
 
-<script>
-    document.querySelectorAll('.show-more').forEach(button => {
-        button.addEventListener('click', function() {
-            const parent = button.closest('.service-item');
-            const shortDescription = parent.querySelector('.short-description');
-            const fullDescription = parent.querySelector('.full-description');
-
-            if (shortDescription.classList.contains('d-none')) {
-                shortDescription.classList.remove('d-none');
-                fullDescription.classList.add('d-none');
-                button.innerHTML = '<i class="fa fa-plus text-primary me-3"></i>Read More';
-            } else {
-                shortDescription.classList.add('d-none');
-                fullDescription.classList.remove('d-none');
-                button.innerHTML = '<i class="fa fa-minus text-primary me-3"></i>Show Less';
-            }
-        });
-    });
-</script>
 
 
    
@@ -342,14 +324,16 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <p class="d-inline-block border rounded-pill py-1 px-4">Appointment</p>
                     <h1 class="mb-4">Make An Appointment To Visit Our Doctor</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <p class="mb-4">"Your pet's health and well-being are our top priorities. Whether it's for a routine check-up or a specific concern, our dedicated veterinarian is here to provide expert care and attention. Schedule an appointment today and take the first step towards ensuring a healthy, happy life for your furry friend. We look forward to welcoming you and your pet to our clinic!"
+
+    </p>
                     <div class="bg-light rounded d-flex align-items-center p-5 mb-4">
                         <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
                             <i class="fa fa-phone-alt text-primary"></i>
                         </div>
                         <div class="ms-4">
                             <p class="mb-2">Call Us Now</p>
-                            <h5 class="mb-0">+012 345 6789</h5>
+                            <h5 class="mb-0">076 0595881</h5>
                         </div>
                     </div>
                     <div class="bg-light rounded d-flex align-items-center p-5">
@@ -358,96 +342,61 @@
                         </div>
                         <div class="ms-4">
                             <p class="mb-2">Mail Us Now</p>
-                            <h5 class="mb-0">info@example.com</h5>
+                            <h5 class="mb-0">info@k9-vets.com</h5>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        <option selected>Choose Doctor</option>
-                                        <option value="1">Doctor 1</option>
-                                        <option value="2">Doctor 2</option>
-                                        <option value="3">Doctor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text"
-                                            class="form-control border-0 datetimepicker-input"
-                                            placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="time" id="time" data-target-input="nearest">
-                                        <input type="text"
-                                            class="form-control border-0 datetimepicker-input"
-                                            placeholder="Choose Date" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control border-0" rows="5" placeholder="Describe your problem"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
+        <form id="appointmentForm" method="POST" action="source/frontend/book_appointments.php">
+            <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                    <input type="text" class="form-control border-0" name="name" placeholder="Your Name" required style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input type="email" class="form-control border-0" name="email" placeholder="Your Email" required style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input type="text" class="form-control border-0" name="mobile" placeholder="Your Mobile" required style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input type="date" class="form-control border-0" name="date" id="appointmentDate" required style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <select class="form-control border-0" name="time" id="appointmentTime" required style="height: 55px;">
+                        <option value="">Choose Time</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="09:30">09:30 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="13:00">01:00 PM</option>
+                        <option value="13:30">01:30 PM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="14:30">02:30 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="15:30">03:30 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="16:30">04:30 PM</option>
+                        <option value="17:00">05:00 PM</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control border-0" name="problem" rows="5" placeholder="Describe your problem" required></textarea>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-    <!-- Appointment End -->
+</div>
 
 
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Testimonial</p>
-                <h1>What Say Our Patients!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
 
 
@@ -523,9 +472,10 @@
     <script src="source/lib/tempusdominus/js/moment.min.js"></script>
     <script src="source/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="source/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-   
     <script src="source/js/main.js"></script>
+    <script src="source/js/service-cards.js"></script>
+    
+    <script src="source/js/appointments-date.js"></script>
 </body>
 
 </html>
