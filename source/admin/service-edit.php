@@ -98,11 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <nav class="nav flex-column">
             <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
-            <a class="nav-link" href="patients.php"><i class="fas fa-dog"></i> Patients</a>
-            <a class="nav-link" href="staff.php"><i class="fas fa-user-md"></i> Staff</a>
             <a class="nav-link active" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
-            <a class="nav-link" href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
+            <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>
         </nav>
     </div>
 

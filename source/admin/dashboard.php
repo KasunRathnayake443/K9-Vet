@@ -1,27 +1,39 @@
 <?php
 session_start();
 include '../config.php';
+
 if (!isset($_SESSION['email'])) {
     echo "<script> document.location='../../admin.php'</script>";
     exit;
 }
+
 $email = $_SESSION['email'];
+
+
+$product_count_query = "SELECT COUNT(*) AS count FROM store";
+$product_count_result = $conn->query($product_count_query);
+$product_count = $product_count_result->fetch_assoc()['count'];
+
+$service_count_query = "SELECT COUNT(*) AS count FROM services";
+$service_count_result = $conn->query($service_count_query);
+$service_count = $service_count_result->fetch_assoc()['count'];
+
+$appointment_count_query = "SELECT COUNT(*) AS count FROM appointments";
+$appointment_count_result = $conn->query($appointment_count_query);
+$appointment_count = $appointment_count_result->fetch_assoc()['count'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K9-Vets | Admin Dashboard</title>
-
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/admin-dashboard.css">
 </head>
-
 <body>
-   
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
@@ -37,57 +49,62 @@ $email = $_SESSION['email'];
         </div>
     </nav>
 
-   
     <div class="sidebar">
         <h4>Admin Menu</h4>
         <nav class="nav flex-column">
             <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
-            <a class="nav-link" href="patients.php"><i class="fas fa-dog"></i> Patients</a>
-            <a class="nav-link" href="staff.php"><i class="fas fa-user-md"></i> Staff</a>
             <a class="nav-link" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
-            <a class="nav-link" href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
+            <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>
         </nav>
     </div>
 
-    
     <div class="content">
         <h1>Welcome to the Admin Dashboard</h1>
         
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
+            <div class="col-md-4">
+                <div class="card text-center">
                     <div class="card-header">
-                        Overview
+                        Store
                     </div>
                     <div class="card-body">
-                        <p>Manage appointments, patients, and staff efficiently with the tools available in this dashboard.</p>
+                        <h5 class="card-title"><?php echo $product_count; ?></h5>
+                        <p class="card-text">Total Available Products</p>
+                        <a href="store.php" class="btn btn-primary">Manage Store</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
+            <div class="col-md-4">
+                <div class="card text-center">
                     <div class="card-header">
-                        Quick Actions
+                        Services
                     </div>
                     <div class="card-body">
-                        <p><a href="appointments.php" class="btn btn-primary btn-sm"><i class="fas fa-calendar-alt"></i> View Appointments</a></p>
-                        <p><a href="patients.php" class="btn btn-primary btn-sm"><i class="fas fa-dog"></i> Manage Patients</a></p>
-                        <p><a href="staff.php" class="btn btn-primary btn-sm"><i class="fas fa-user-md"></i> Manage Staff</a></p>
+                        <h5 class="card-title"><?php echo $service_count; ?></h5>
+                        <p class="card-text">Total Available Services</p>
+                        <a href="services.php" class="btn btn-primary">Manage Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Appointments
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $appointment_count; ?></h5>
+                        <p class="card-text">Total Appointments</p>
+                        <a href="appointments.php" class="btn btn-primary">View Appointments</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-   
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/dateTime.js"></script>
     <script src="../js/logout.js"></script>
-
-    <?php
-     $_SESSION['email'] = $email;
-     ?>
 </body>
 </html>

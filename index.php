@@ -97,7 +97,7 @@
                 <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
-                <a href="shop.html" class="nav-item nav-link">Shop</a>
+                <a href="source/frontend/shop.php" class="nav-item nav-link">Shop</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
             <a href="#appointments" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Appointment<i class="fa fa-arrow-right ms-3"></i></a>
@@ -302,7 +302,7 @@
                     </div>
                     <div class="product-details bg-light text-center p-4">
                         <h5><?php echo htmlspecialchars($row['name']); ?></h5>
-                        <p class="text-primary"><?php echo htmlspecialchars($row['price']); ?></p>
+                        <p class="text-primary">LKR. <?php echo htmlspecialchars($row['price']); ?></p>
                     </div>
                     <div class="product-hover">
                         <a class="btn btn-simple" href="">Visit Store</a>
