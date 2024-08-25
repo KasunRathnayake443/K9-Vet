@@ -26,14 +26,14 @@
 </head>
 
 <body>
-    <!-- Spinner -->
+    
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
     
-    <!-- Topbar -->
+    
     <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="row gx-0 d-none d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <!-- Navbar -->
+   
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>K9-Vets</h1>
@@ -73,7 +73,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="../../index.php" class="nav-item nav-link">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
+                <a href="services.php" class="nav-item nav-link">Services</a>
                 <a href="shop.php" class="nav-item nav-link">Shop</a>
                 <a href="contact.php" class="nav-item nav-link active">Contact</a>
             </div>
@@ -81,7 +81,7 @@
         </div>
     </nav>
 
-    <!-- Contact Header -->
+   
     <div class="container-fluid header bg-primary p-0 mb-5">
         <div class="row g-0 align-items-center">
             <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
@@ -89,12 +89,12 @@
                 <p class="text-white">We are here to answer any questions you may have about our services or your pet's well-being. Reach out to us and we'll respond as soon as we can.</p>
             </div>
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <img class="img-fluid" src="source/img/front/contact-us.jpg" alt="Contact Us" style="object-fit:cover; width: 100%; height: 100%;">
+                <img class="img-fluid" src="../img/front/contactus.webp" alt="Contact Us" style="object-fit:cover; width: 100%; height: 100%;">
             </div>
         </div>
     </div>
 
-    <!-- Contact Form -->
+   
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
@@ -122,7 +122,7 @@
                     </form>
                 </div>
 
-                <!-- Contact Info -->
+                
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h5 class="section-title bg-white text-start text-primary pe-3">Contact Info</h5>
                     <h1 class="mb-4">Get In Touch</h1>
@@ -199,7 +199,7 @@
                     <h5 class="text-light mb-4">Quick Links</h5>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="source/frontend/shop.php">Shop</a>
+                    <a class="btn btn-link" href="shop.php">Shop</a>
                     <a class="btn btn-link" href="">News</a>
                     <a class="btn btn-link" href="">Contact Us</a>
                     

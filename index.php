@@ -6,7 +6,7 @@
 <?php
     include 'source/config.php';
 
-    $sql = "SELECT * FROM services";
+    $sql = "SELECT * FROM services LIMIT 6";
     $result = mysqli_query($conn, $sql);
     $services = mysqli_num_rows($result);
 
@@ -41,9 +41,7 @@
    
     <link href="source/css/style.css" rel="stylesheet">
     <link href="source/css/index-shop-cards.css" rel="stylesheet">
-    <style>
-      
-</style>
+    
 </head>
 
 <body>
