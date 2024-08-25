@@ -305,7 +305,7 @@
                         <p class="text-primary">LKR. <?php echo htmlspecialchars($row['price']); ?></p>
                     </div>
                     <div class="product-hover">
-                        <a class="btn btn-simple" href="">Visit Store</a>
+                        <a class="btn btn-simple" href="source/frontend/shop.php">Visit Store</a>
                     </div>
                 </div>
             </div> 
@@ -429,7 +429,7 @@
                     <h5 class="text-light mb-4">Quick Links</h5>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Shop</a>
+                    <a class="btn btn-link" href="source/frontend/shop.php">Shop</a>
                     <a class="btn btn-link" href="">News</a>
                     <a class="btn btn-link" href="">Contact Us</a>
                     

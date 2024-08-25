@@ -28,6 +28,73 @@
     <link href="../css/index-shop-cards.css" rel="stylesheet">
     <link href="../css/shop.css" rel="stylesheet">
     <link href="../css/cart.css" rel="stylesheet">
+
+<style>
+    .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -300px; 
+        width: 300px;
+        height: 600px;
+        margin-top: 75px;
+        background: #f8f9fa;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-sidebar.open {
+        right: 0; 
+    }
+
+    .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .close-cart {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .cart-items {
+        flex: 1;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item h6 {
+        margin: 0;
+    }
+
+    .cart-item button {
+        background: none;
+        border: none;
+        color: #dc3545;
+        cursor: pointer;
+        font-size: 1.25rem;
+    }
+
+    .cart-footer {
+        text-align: center;
+    }
+</style>
+
 </head>
 
 <body>
@@ -53,7 +120,9 @@
                 <a href="../../service.html" class="nav-item nav-link">Services</a>
                 <a href="shop.php" class="nav-item nav-link active">Shop</a>
                 <a href="../../contact.html" class="nav-item nav-link">Contact</a>
-                <a href="#" class="nav-item nav-link" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+                <a id="cart-icon" href="javascript:void(0);" class="nav-item nav-link">
+    <i class="fa fa-shopping-cart"></i>
+</a>
             </div>
             <a href="#appointments" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Appointment<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
@@ -70,44 +139,58 @@
 
    
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="product-item bg-light">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../img/products/<?php echo $row['url']; ?>" alt="<?php echo $row['name']; ?>">
-                            </div>
-                            <div class="text-center py-4">
+    <div class="container">
+        <div class="row g-4">
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="../img/products/<?php echo $row['url']; ?>" alt="<?php echo $row['name']; ?>">
+                        </div>
+                        <div class="text-center py-4">
                             <div class="product-action">
-                            <a class="btn btn-outline-dark" href="#" data-id="<?php echo $row['id']; ?>" data-name="<?php echo $row['name']; ?>" data-price="<?php echo $row['price']; ?>">Add to Cart</a>
-                                    <a class="btn btn-primary" href="checkout.php?buy=<?php echo $row['id']; ?>">Buy Now</a>
-                                </div>
-                                <a class="h6 text-decoration-none text-truncate" href="product-detail.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>Rs. <?php echo $row['price']; ?></h5>
-                                </div>
+                                <a href="javascript:void(0);" class="btn btn-outline-dark add-to-cart-btn" 
+                                   data-id="<?php echo $row['id']; ?>" 
+                                   data-name="<?php echo $row['name']; ?>" 
+                                   data-price="<?php echo $row['price']; ?>">
+                                    Add to Cart
+                                </a>
+                                <a href="checkout.php?buy=<?php echo $row['id']; ?>" class="btn btn-primary">Buy Now</a>
+                            </div>
+                            <a class="h6 text-decoration-none text-truncate" href="product-detail.php?id=<?php echo $row['id']; ?>">
+                                <?php echo $row['name']; ?>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>Rs. <?php echo $row['price']; ?></h5>
                             </div>
                         </div>
                     </div>
-                <?php endwhile; ?>
-            </div>
+                </div>
+            <?php endwhile; ?>
         </div>
     </div>
+</div>
 
-    <div id="cart-sidebar" class="cart-sidebar">
+
+
+<div id="cart-sidebar" class="cart-sidebar">
     <div class="cart-header">
-        <h4>Your Cart</h4>
-        <button class="close-cart">&times;</button>
+        <h5>Your Cart</h5>
+        <button id="close-cart" class="close-cart">&times;</button>
     </div>
-    <div class="cart-items">
+    <div id="cart-items" class="cart-items">
        
     </div>
     <div class="cart-footer">
-        <h5>Total: Rs. <span id="cart-total">0.00</span></h5>
-        <a href="checkout.php" class="btn btn-primary">Checkout</a>
+        <h6>Total: <span id="cart-total">Rs 0</span></h6>
+        <a href="checkout.php" class="btn btn-primary w-100">Checkout</a>
     </div>
 </div>
+
+
+
+
+
 
    
 
@@ -166,69 +249,12 @@
     </div>
     
 
-<script>
-   document.addEventListener('DOMContentLoaded', function() {
-    const cartIcon = document.getElementById('cart-icon');
-    const cartSidebar = document.getElementById('cart-sidebar');
-    const closeCartBtn = document.querySelector('.close-cart');
-    const cartCount = document.getElementById('cart-count');
-    const cartTotal = document.getElementById('cart-total');
-    const cartItemsContainer = document.querySelector('.cart-items');
-
-   
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    updateCart();
-
-    
-    cartIcon.addEventListener('click', function() {
-        cartSidebar.classList.add('active');
-    });
-
-    
-    closeCartBtn.addEventListener('click', function() {
-        cartSidebar.classList.remove('active');
-    });
-
-   
-    document.querySelectorAll('.btn-outline-dark').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            const productId = this.dataset.id;
-            const productName = this.dataset.name;
-            const productPrice = parseFloat(this.dataset.price);
-            addToCart(productId, productName, productPrice);
-        });
-    });
-
-    function addToCart(id, name, price) {
-        const existingItem = cart.find(item => item.id === id);
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({ id, name, price, quantity: 1 });
-        }
-        updateCart();
-    }
-
-    function updateCart() {
-        cartCount.innerText = cart.reduce((total, item) => total + item.quantity, 0);
-        cartTotal.innerText = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
-        cartItemsContainer.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <p>${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-        `).join('');
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-});
-
-
-</script>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../lib/wow/wow.min.js"></script>
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
 </body>
 </html>
