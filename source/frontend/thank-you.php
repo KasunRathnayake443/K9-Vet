@@ -1,9 +1,14 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - K9-Vets</title>
+    <link href="../img/logo.png" rel="icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,6 +57,22 @@
     <p>Your order has been successfully placed. We will notify you once it’s on its way.</p>
     <a href="../../index.php" class="btn">Go Back to Home</a>
 </div>
+
+<?php if (isset($_SESSION['pdf_file'])): ?>
+<script>
+    window.onload = function() {
+        var pdfFile = "<?php echo $_SESSION['pdf_file']; ?>";
+        
+        <?php unset($_SESSION['pdf_file']); ?>
+        
+    
+        var link = document.createElement('a');
+        link.href = pdfFile;
+        link.download = pdfFile.split('/').pop(); 
+        link.click();
+    }
+</script>
+<?php endif; ?>
 
 </body>
 </html>

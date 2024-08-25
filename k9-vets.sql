@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2024 at 10:16 AM
+-- Generation Time: Aug 25, 2024 at 04:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,7 +64,6 @@ CREATE TABLE `appointments` (
 
 INSERT INTO `appointments` (`id`, `name`, `email`, `mobile`, `date`, `time`, `problem`, `created_at`) VALUES
 (1, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-30', '15:30:00', 'test', '2024-08-24 06:07:16'),
-(2, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-25', '16:30:00', 'test', '2024-08-24 07:37:54'),
 (3, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-30', '17:00:00', 'test', '2024-08-24 07:38:19'),
 (4, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-30', '17:00:00', 'test', '2024-08-24 07:39:46'),
 (5, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-09-06', '16:30:00', 'test', '2024-08-24 07:40:01'),
@@ -77,7 +76,224 @@ INSERT INTO `appointments` (`id`, `name`, `email`, `mobile`, `date`, `time`, `pr
 (12, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-31', '16:00:00', '1111111', '2024-08-24 07:52:55'),
 (13, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-29', '10:30:00', '111111', '2024-08-24 07:54:35'),
 (14, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-28', '15:00:00', '1234', '2024-08-24 07:58:09'),
-(15, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-26', '16:00:00', '15161684684', '2024-08-24 08:13:50');
+(16, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-29', '16:00:00', 'ibiubiub', '2024-08-24 09:24:48'),
+(18, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-27', '16:30:00', 'test', '2024-08-25 12:47:20'),
+(19, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-27', '15:00:00', '11', '2024-08-25 12:50:58'),
+(21, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-26', '11:30:00', '11', '2024-08-25 12:52:25'),
+(22, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-26', '14:30:00', '//', '2024-08-25 12:55:16'),
+(23, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-27', '11:30:00', '11', '2024-08-25 12:56:25'),
+(24, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '2024-08-27', '09:30:00', '44', '2024-08-25 12:58:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_form`
+--
+
+CREATE TABLE `contact_form` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_form`
+--
+
+INSERT INTO `contact_form` (`id`, `name`, `email`, `subject`, `message`, `created_at`) VALUES
+(1, 'Kasun Rathnayake', 'madkasunmax@gmail.com', 'test', 'test', '2024-08-25 14:20:34'),
+(2, 'Kasun Rathnayake', 'madkasunmax@gmail.com', 'qq', 'qq', '2024-08-25 14:21:41'),
+(3, 'Kasun Rathnayake', 'madkasunmax@gmail.com', 'qq', 'qq', '2024-08-25 14:22:47'),
+(4, 'Kasun Rathnayake', 'madkasunmax@gmail.com', 'qq', 'sss', '2024-08-25 14:25:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` text NOT NULL,
+  `total_price` decimal(10,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `address`, `total_price`, `created_at`) VALUES
+(1, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:16:49'),
+(2, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:16:51'),
+(3, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:16:53'),
+(4, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:16:56'),
+(5, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:16:58'),
+(6, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:17:13'),
+(7, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 1720500.00, '2024-08-25 07:17:19'),
+(8, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 5500.00, '2024-08-25 07:19:48'),
+(9, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 40500.00, '2024-08-25 07:22:48'),
+(10, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 141500.00, '2024-08-25 07:24:57'),
+(11, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 68000.00, '2024-08-25 09:36:16'),
+(12, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:40:35'),
+(13, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:40:44'),
+(14, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:42:22'),
+(15, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:45:31'),
+(16, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:47:51'),
+(17, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:51:57'),
+(18, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 109000.00, '2024-08-25 09:52:48'),
+(19, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 144000.00, '2024-08-25 09:53:04'),
+(20, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 09:53:59'),
+(21, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 09:56:50'),
+(22, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:01:12'),
+(23, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:01:29'),
+(24, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:05:47'),
+(25, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:06:02'),
+(26, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:08:14'),
+(27, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:08:51'),
+(28, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:09:03'),
+(29, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 179000.00, '2024-08-25 10:10:58'),
+(30, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 73500.00, '2024-08-25 13:02:45'),
+(31, 'Kasun Rathnayake', 'madkasunmax@gmail.com', '0718948284', '550/36 A\r\nRanawirugama ,palandagoda', 145000.00, '2024-08-25 13:30:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `product_price` decimal(10,2) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_name`, `product_price`, `quantity`) VALUES
+(1, 1, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(2, 1, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(3, 1, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(4, 1, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(5, 2, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(6, 2, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(7, 2, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(8, 2, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(9, 3, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(10, 3, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(11, 3, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(12, 3, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(13, 4, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(14, 4, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(15, 4, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(16, 4, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(17, 5, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(18, 5, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(19, 5, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(20, 5, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(21, 6, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(22, 6, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(23, 6, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(24, 6, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(25, 7, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(26, 7, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 14),
+(27, 7, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 12),
+(28, 7, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 36),
+(29, 8, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(30, 9, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(31, 9, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(32, 10, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(33, 10, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 2),
+(34, 10, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 2),
+(35, 11, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(36, 11, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(37, 12, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(38, 12, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(39, 12, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(40, 12, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(41, 13, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(42, 13, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(43, 13, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(44, 13, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(45, 14, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(46, 14, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(47, 14, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(48, 14, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(49, 15, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(50, 15, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(51, 15, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(52, 15, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(53, 16, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(54, 16, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(55, 16, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(56, 16, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(57, 17, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(58, 17, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(59, 17, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(60, 17, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(61, 18, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(62, 18, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(63, 18, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(64, 18, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(65, 19, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 2),
+(66, 19, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(67, 19, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(68, 19, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(69, 20, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(70, 20, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(71, 20, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(72, 20, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(73, 21, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(74, 21, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(75, 21, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(76, 21, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(77, 22, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(78, 22, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(79, 22, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(80, 22, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(81, 23, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(82, 23, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(83, 23, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(84, 23, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(85, 24, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(86, 24, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(87, 24, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(88, 24, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(89, 25, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(90, 25, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(91, 25, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(92, 25, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(93, 26, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(94, 26, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(95, 26, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(96, 26, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(97, 27, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(98, 27, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(99, 27, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(100, 27, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(101, 28, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(102, 28, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(103, 28, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(104, 28, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(105, 29, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 3),
+(106, 29, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(107, 29, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(108, 29, 'Blackhawk Puppy - Lamb and Rice 20Kg', 35500.00, 1),
+(109, 30, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 1),
+(110, 30, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1),
+(111, 30, 'Royal Canin Maxi Puppy - 15KG', 33000.00, 1),
+(112, 31, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 5500.00, 20),
+(113, 31, 'Blackhawk Adult - Lamb and Rice 20kg', 35000.00, 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +342,8 @@ INSERT INTO `store` (`id`, `name`, `description`, `price`, `url`) VALUES
 (1, 'Pedigree Chicken & Vegetables 3Kg - Adult Dog', 'Product Information Pedigree Chicken & Vegetables 3Kg - Adult Dog PEDIGREE® Adult Complete Nutrition Roasted Chicken, Rice & Vegetable Flavor is formulated to meet the nutritional levels established by the AAFCO Dog Food Nutrient Profiles for maintenance.', 5500, 'PedigreeChicken .webp'),
 (2, 'Blackhawk Adult - Lamb and Rice 20kg', 'Product Information BlackHawk Adult - Lamb & Rice BlackHawk Lamb & Rice is a high quality, Australian made, holistic diet for adult dogs. This high quality dry food contains functional ingredients from nature with known beneficial properties like blueberries, dandelion...', 35000, 'backhawk.webp'),
 (3, 'Royal Canin Maxi Puppy - 15KG', 'Product Information Royal Canin Maxi Puppy - 15Kg Complete feed for dogs - for large breed puppies (adult weight from 26 to 44 kg) - up to 15 months old. ROYAL CANIN® Maxi Puppy is specially formulated with the nutritional needs...', 33000, 'royalpuppy.jpg'),
-(5, 'Blackhawk Puppy - Lamb and Rice 20Kg', 'Product Information Black Hawk Original Puppy Lamb & Rice BlackHawk Puppy Lamb & Rice is a high quality, Australian made, holistic diet packed with nutrition for growing puppies. This high quality dry puppy food contains functional ingredients from nature with...', 35500, 'blackhawk.webp');
+(5, 'Blackhawk Puppy - Lamb and Rice 20Kg', 'Product Information Black Hawk Original Puppy Lamb & Rice BlackHawk Puppy Lamb & Rice is a high quality, Australian made, holistic diet packed with nutrition for growing puppies. This high quality dry puppy food contains functional ingredients from nature with...', 35500, 'blackhawk.webp'),
+(6, 'Whiskas Tuna & White Fish 85g - Adult Cat', 'WHISKAS® Food for Cats Whitefish and Tuna Dinner is formulated to meet the nutritional levels established by the AAFCO cat food nutrient profiles for growth and maintenance.\r\nNew & Improved Whiskas : 100% complete and balanced meal for Cat’s vital system-Adult & Kitten.\r\nHigh Calcium, Phosphorus, Vitamin, Mineral, Taurine, Vitamin E and Protein', 400, 'Tuna_Whitefish_1024x1024.webp');
 
 --
 -- Indexes for dumped tables
@@ -143,6 +360,25 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `appointments`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_form`
+--
+ALTER TABLE `contact_form`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_id` (`order_id`);
 
 --
 -- Indexes for table `services`
@@ -170,7 +406,25 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `contact_form`
+--
+ALTER TABLE `contact_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -182,7 +436,17 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

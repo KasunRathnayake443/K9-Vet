@@ -10,7 +10,7 @@
     $result = mysqli_query($conn, $sql);
     $services = mysqli_num_rows($result);
 
-    $sql2 = "SELECT * FROM store";
+    $sql2 = "SELECT * FROM store LIMIT 4";
     $result2 = mysqli_query($conn, $sql2);
     $products = mysqli_num_rows($result2);
 ?>
@@ -21,7 +21,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <link href="img/favicon.ico" rel="icon">
+    <link href="source/img/logo.png" rel="icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,10 +95,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Services</a>
+                <a href="source/frontend/about.php" class="nav-item nav-link">About</a>
+                <a href="source/frontend/services.php" class="nav-item nav-link">Services</a>
                 <a href="source/frontend/shop.php" class="nav-item nav-link">Shop</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="source/frontend/contact.php" class="nav-item nav-link">Contact</a>
             </div>
             <a href="#appointments" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Appointment<i class="fa fa-arrow-right ms-3"></i></a>
         </div>

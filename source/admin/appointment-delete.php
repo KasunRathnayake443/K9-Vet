@@ -14,7 +14,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-// Fetch the appointment details
+
 $query = "SELECT * FROM appointments WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $id);
@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-// If the delete request is confirmed
+
 if (isset($_POST['confirm_delete'])) {
     $delete_query = "DELETE FROM appointments WHERE id = ?";
     $delete_stmt = $conn->prepare($delete_query);

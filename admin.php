@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="source/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="source/css/admin-login.css">
+    <link href="source/img/logo.png" rel="icon">
 
  
    
