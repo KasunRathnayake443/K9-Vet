@@ -16,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($cartData as $item) {
         $totalPrice += $item['price'] * $item['quantity'];
     }
-
-    $sql = "INSERT INTO orders (name, email, phone, address, total_price, created_at) 
-            VALUES ('$name', '$email', '$phone', '$address', '$totalPrice', NOW())";
+    $status = "Pending";
+    $sql = "INSERT INTO orders (name, email, phone, address, total_price, created_at,status) 
+            VALUES ('$name', '$email', '$phone', '$address', '$totalPrice', NOW(), '$status')";
 
     if ($conn->query($sql) === TRUE) {
         $orderId = $conn->insert_id;

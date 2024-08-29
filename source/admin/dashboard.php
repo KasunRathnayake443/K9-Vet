@@ -21,6 +21,11 @@ $service_count = $service_count_result->fetch_assoc()['count'];
 $appointment_count_query = "SELECT COUNT(*) AS count FROM appointments";
 $appointment_count_result = $conn->query($appointment_count_query);
 $appointment_count = $appointment_count_result->fetch_assoc()['count'];
+
+$order_count_query = "SELECT COUNT(*) AS count FROM orders";
+$order_count_result = $conn->query($order_count_query);
+$order_count = $order_count_result->fetch_assoc()['count'];
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +37,7 @@ $appointment_count = $appointment_count_result->fetch_assoc()['count'];
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/admin-dashboard.css">
+    <link href="../img/logo.png" rel="icon">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -54,6 +60,7 @@ $appointment_count = $appointment_count_result->fetch_assoc()['count'];
         <nav class="nav flex-column">
             <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
+            <a class="nav-link" href="orders.php"><i class="fas fa-box"></i> Orders</a>
             <a class="nav-link" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
             <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>
@@ -66,7 +73,7 @@ $appointment_count = $appointment_count_result->fetch_assoc()['count'];
         <div class="row">
             <div class="col-md-4">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-success">
                         Store
                     </div>
                     <div class="card-body">
@@ -77,7 +84,7 @@ $appointment_count = $appointment_count_result->fetch_assoc()['count'];
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card text-center">
+                <div class="card text-center bg-primary">
                     <div class="card-header">
                         Services
                     </div>
@@ -90,13 +97,25 @@ $appointment_count = $appointment_count_result->fetch_assoc()['count'];
             </div>
             <div class="col-md-4">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-secondary">
                         Appointments
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $appointment_count; ?></h5>
                         <p class="card-text">Total Appointments</p>
                         <a href="appointments.php" class="btn btn-primary">View Appointments</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header bg-info">
+                        Orders
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $order_count; ?></h5>
+                        <p class="card-text">Total Available Orders</p>
+                        <a href="orders.php" class="btn btn-primary">Manage Orders</a>
                     </div>
                 </div>
             </div>

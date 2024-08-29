@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/admin-dashboard.css">
     <link rel="stylesheet" href="../css/admin-store.css">
+    <link href="../img/logo.png" rel="icon">
 
     <style>
         .product-image {
@@ -105,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <nav class="nav flex-column">
             <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
+            <a class="nav-link" href="orders.php"><i class="fas fa-box"></i> Orders</a>
             <a class="nav-link" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link active" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
             <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>
