@@ -4,18 +4,21 @@ include '../config.php';
 
 if (!isset($_SESSION['email'])) {
     echo "<script> document.location='../../admin.php'</script>";
-    exit;
+    exit;  
 }
 
 $email = $_SESSION['email'];
 
-$query = "SELECT * FROM appointments ORDER BY date ASC, time ASC";
-$result = mysqli_query($conn, $query);
-$appointments = [];
 
-if ($result && mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $appointments[] = $row;
+
+
+$messages_query = "SELECT * FROM contact_form ORDER BY created_at DESC";
+$messages_result = mysqli_query($conn, $messages_query);
+$messages = [];
+
+if ($messages_result && mysqli_num_rows($messages_result) > 0) {
+    while ($row = mysqli_fetch_assoc($messages_result)) {
+        $messages[] = $row;
     }
 }
 
@@ -26,7 +29,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K9-Vets | Appointments</title>
+    <title>K9-Vets | Messages</title>
 
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -55,55 +58,46 @@ if ($result && mysqli_num_rows($result) > 0) {
         <h4>Admin Menu</h4>
         <nav class="nav flex-column">
             <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            <a class="nav-link active" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
+            <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
             <a class="nav-link" href="orders.php"><i class="fas fa-box"></i> Orders</a>
-            <a class="nav-link"href="messages.php"><i class="fas fa-envelope"></i> Messages</a>
+            <a class="nav-link active" href="messages.php"><i class="fas fa-envelope"></i> Messages</a>
             <a class="nav-link" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
             <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>
         </nav>
     </div>
 
-    <div class="content" >
-        <h1>Appointments</h1>
+    <div class="content">
+        <h1>Messages</h1>
 
-        <h2>Scheduled Appointments</h2>
+        <h2>Received Messages</h2>
         <div class="table-responsive">
             <table class="table table-striped table-hover">
-                <thead class="bg-primary text-white">
+                <thead class="bg-secondary text-white">
                     <tr>
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Mobile</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Problem</th>
+                        <th>Subject</th>
+                        <th>Message</th>
                         <th>Created At</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (count($appointments) > 0): ?>
-                        <?php foreach ($appointments as $appointment): ?>
+                    <?php if (count($messages) > 0): ?>
+                        <?php foreach ($messages as $message): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($appointment['id']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['name']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['email']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['mobile']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['date']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['time']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['problem']); ?></td>
-                                <td><?php echo htmlspecialchars($appointment['created_at']); ?></td>
-                                <td>
-                                    <a href="appointment-edit.php?id=<?php echo $appointment['id']; ?>" class="btn-action edit"><i class="fas fa-edit"></i></a>
-                                    <a href="appointment-delete.php?id=<?php echo $appointment['id']; ?>" class="btn-action delete" ><i class="fas fa-trash-alt"></i></a>
-                                </td>
+                                <td><?php echo htmlspecialchars($message['id']); ?></td>
+                                <td><?php echo htmlspecialchars($message['name']); ?></td>
+                                <td><?php echo htmlspecialchars($message['email']); ?></td>
+                                <td><?php echo htmlspecialchars($message['subject']); ?></td>
+                                <td><?php echo htmlspecialchars($message['message']); ?></td>
+                                <td><?php echo htmlspecialchars($message['created_at']); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="8" class="text-center">No appointments available.</td>
+                            <td colspan="6" class="text-center">No messages available.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>

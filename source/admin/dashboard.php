@@ -26,6 +26,10 @@ $order_count_query = "SELECT COUNT(*) AS count FROM orders";
 $order_count_result = $conn->query($order_count_query);
 $order_count = $order_count_result->fetch_assoc()['count'];
 
+$message_count_query = "SELECT COUNT(*) AS count FROM contact_form";
+$message_count_result = $conn->query($message_count_query);
+$message_count = $message_count_result->fetch_assoc()['count'];
+
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +65,7 @@ $order_count = $order_count_result->fetch_assoc()['count'];
             <a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
             <a class="nav-link" href="orders.php"><i class="fas fa-box"></i> Orders</a>
+            <a class="nav-link"href="messages.php"><i class="fas fa-envelope"></i> Messages</a>
             <a class="nav-link" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
             <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>
@@ -116,6 +121,18 @@ $order_count = $order_count_result->fetch_assoc()['count'];
                         <h5 class="card-title"><?php echo $order_count; ?></h5>
                         <p class="card-text">Total Available Orders</p>
                         <a href="orders.php" class="btn btn-primary">Manage Orders</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header bg-primary">
+                        Messages
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $message_count; ?></h5>
+                        <p class="card-text">Total Messages</p>
+                        <a href="messages.php" class="btn btn-primary">Manage Messages</a>
                     </div>
                 </div>
             </div>

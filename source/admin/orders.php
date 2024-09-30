@@ -57,6 +57,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             <a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a class="nav-link" href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a>
             <a class="nav-link active" href="orders.php"><i class="fas fa-box"></i> Orders</a>
+            <a class="nav-link"href="messages.php"><i class="fas fa-envelope"></i> Messages</a>
             <a class="nav-link" href="services.php"><i class="fas fa-concierge-bell"></i> Services</a>
             <a class="nav-link" href="store.php"><i class="fa-solid fa-store"></i> Store</a>
             <a class="nav-link" href="admin.php"><i class="fas fa-cogs"></i> Admin</a>

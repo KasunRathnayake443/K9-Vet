@@ -25,6 +25,7 @@
 </head>
 
 <body>
+<div id="dog-animation" style="position: fixed; bottom: 20px; right: 20px; width: 150px; height: 150px;"></div>
    
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -163,6 +164,16 @@
    
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <script>
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('dog-animation'), 
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../img/front/dog.json' 
+        });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../lib/wow/wow.min.js"></script>
@@ -173,6 +184,7 @@
     <script src="../lib/tempusdominus/js/moment.min.js"></script>
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 
     <script src="../js/main.js"></script>
 </body>
